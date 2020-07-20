@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>User Form</title>
+	<link rel="stylesheet"
+		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></link>
+</h:head>
+<h:body>
+	<div class="container">
+		<h:form method="post">
+			<p class="h4 mb-4">Sign up</p>
+			<h:outputLabel for="username" value="User Name " />
+			<h:inputText class="form-control sb-2" id="username"
+				value="#{userBean.userName}" required="true"
+				requiredMessage="Enter name">
+			</h:inputText>
+			<h:message for="username" style="color: red" />
+			<br />
+			<h:outputLabel for="email" value="Email ID " />
+			<h:inputText class="form-control sb-2" id="email"
+				value="#{userBean.mail}" required="true"
+				requiredMessage="Enter mail">
+				<f:validateRegex
+					pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" />
+			</h:inputText>
+			<br />
+			<h:outputLabel for="dept" value="dept " />
+			<h:inputText class="form-control sb-2" id="dept"
+				value="#{userBean.dept}" required="true"
+				requiredMessage="Enter dept">
+			</h:inputText>
+			<br />
+			<h:commandButton action="response.xhtml" class="btn btn-outline-dark"
+				value="submit" />
+		</h:form>
+	</div>
+</h:body>
+
+</html>
