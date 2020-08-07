@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<title>JSF Hibernate</title>
+	<style type="text/css">
+.btnPos {
+	margin: 12px;
+}
+
+.marginLeft12 {
+	margin-left: 12px;
+}
+
+.successText {
+	padding-left: 22px;
+	font-weight: bold;
+	color: green;
+}
+
+.stud-table {
+	border-collapse: collapse;
+}
+
+.stud-table-header {
+	text-align: center;
+	background: none repeat scroll 0 0 #E5E5E5;
+	border-bottom: 1px solid #BBBBBB;
+	padding: 2px;
+}
+
+.stud-table-row {
+	padding: 12px;
+	text-align: center;
+}
+</style>
+</h:head>
+<h:body>
+	<div class="container">
+		<center>
+			<h2>JSF Hibernate</h2>
+		</center>
+		<!-- New Student Form -->
+		<h3 class="marginLeft12">Contact Form</h3>
+		<h:form id="contactSaveForm" styleClass="form-horizontal">
+			<h:panelGrid columns="2">
+				<div class="form-group">
+					<h:outputLabel value="Id:" styleClass="control-label" />
+					<div class="col-xs-10">
+						<h:inputText value="#{user.id}" styleClass="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Name:" styleClass="control-label" />
+					<div class="col-xs-10">
+						<h:inputText value="#{user.name}" styleClass="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="City:" styleClass="control-label" />
+					<div class="col-xs-10">
+						<h:inputText value="#{user.city}" styleClass="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-offset-2 col-xs-10">
+						<h:commandButton value="Save Contact" action="#{user.saveDetails}"
+							styleClass="btn btn-primary btn-sm btnPos" />
+					</div>
+				</div>
+			</h:panelGrid>
+			<h:outputText id="saveResult"
+				rendered="#{not empty createdContactId}"
+				value="!! Contact Record Saved In Database !!"
+				styleClass="successText" />
+		</h:form>
+	</div>
+</h:body>
+</html>
